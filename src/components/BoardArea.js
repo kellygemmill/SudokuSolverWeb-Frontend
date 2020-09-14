@@ -18,7 +18,7 @@ const BoardArea = () => {
         }
 
         axios
-            .post(`http://localhost:8080/sudoku/solve`, requestBody)
+            .post(`https://mighty-hamlet-94209.herokuapp.com/sudoku/solve`, requestBody)
             .then(response => {
                 setSudokuBoard(response.data.solution.map(value => value === "0" ? "" : value))
             })
