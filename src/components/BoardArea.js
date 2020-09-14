@@ -68,6 +68,7 @@ const BoardArea = () => {
 
     const resetPuzzleSize = (event) => {
         setBoardLength(event.target.value)
+        setSolutionFound("")
     }
 
     const handleSudokuInput = (event) => {
