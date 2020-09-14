@@ -5,6 +5,7 @@ import MyButton from './MyButton'
 import MyDropdown from './MyDropdown'
 import Directions from './Directions'
 import Solution from './Solution'
+import LargeBoardDirections from './LargeBoardDirections'
 
 const BoardArea = () => {
 
@@ -28,7 +29,7 @@ const BoardArea = () => {
         if (value === "") {
             return 0
         }
-        return value.charCodeAt(0) - "A".charCodeAt(0) + 10
+        return value.toUpperCase().charCodeAt(0) - "A".charCodeAt(0) + 10
     }
 
     const convertToChar = value => {
@@ -89,6 +90,7 @@ const BoardArea = () => {
         <div style={style}>
             
             <MyDropdown handleClick={resetPuzzleSize} />
+            <LargeBoardDirections boardLength={boardLength} />
             <SudokuBoard sudokuValue={sudokuBoard} boardLength={boardLength} handleSudokuField={handleSudokuInput} />
             <div>
             <MyButton id="solve-button" text="Solve!" handleClick={solvePuzzle} type="primary" /> {' '}
