@@ -8,18 +8,17 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup'
 const MyDropdown = ({handleClick}) => {
 
     const style = {
-        marginBottom: "10px",
+        marginBottom: "15px",
         marginRight: "0px"
     }
 
     return (
         <div>
-            <span style={{fontWeight: "bold"}}>Change puzzle size:</span>
+            <p style={{fontWeight: "bold", marginBottom: "5px"}}>Change puzzle size:</p>
             <ButtonGroup aria-label="Board size" style={style}>
-                <Button variant="secondary" value="4" onClick={handleClick}>4 x 4</Button>
-                <Button variant="secondary" value="9" onClick={handleClick}>9 x 9</Button>
-                <Button variant="secondary" value="16" onClick={handleClick}>16 x 16</Button>
-                <Button variant="secondary" value="25" onClick={handleClick}>25 x 25</Button>
+                <Button variant="outline-dark" value="4" onClick={handleClick}>4 x 4</Button>
+                <Button variant="outline-dark" value="9" onClick={handleClick}>9 x 9</Button>
+                <Button variant="outline-dark" value="16" onClick={handleClick}>16 x 16</Button>
             </ButtonGroup>
         </div>
 

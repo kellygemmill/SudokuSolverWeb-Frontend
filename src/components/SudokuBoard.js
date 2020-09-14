@@ -1,18 +1,17 @@
 import React from 'react'
 import Square from './Square'
 
-const SudokuBoard = ( {sudokuValue,handleSudokuField} ) => {
+const SudokuBoard = ( {sudokuValue,boardLength,handleSudokuField} ) => {
     
     const style = {
         border: "4px solid black",
-        height: "368px",
-        width: "368px",
+        height: `${boardLength*40 + 8}px`,
+        width: `${boardLength*40 + 8}px`,
         margin: "0 auto",
         display: "grid",
-        gridTemplate: "repeat(9, 1fr) / repeat(9, 1fr)",
+        gridTemplate: `repeat(${boardLength}, 1fr) / repeat(${boardLength}, 1fr)`
     };
-
-
+    
     return (
         <div style={style}>
             {sudokuValue    

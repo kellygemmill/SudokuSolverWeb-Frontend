@@ -1,45 +1,73 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import SudokuBoard from './SudokuBoard'
 import MyButton from './MyButton'
 import MyDropdown from './MyDropdown'
 import Directions from './Directions'
+import Solution from './Solution'
 
 const BoardArea = () => {
 
-    const initialize = new Array(81).fill('')
+    const [boardLength,setBoardLength] = useState(9)
+    const [boardSize,setBoardSize] = useState(boardLength*boardLength)
+    const [sudokuBoard, setSudokuBoard] = useState(new Array(boardSize).fill(''))
+    const [solutionFound,setSolutionFound] = useState("")
 
-    const [sudokuBoard, setSudokuBoard] = useState(initialize);
+    useEffect(() => {
+        setBoardSize(boardLength*boardLength)
+    },[boardLength])
+
+    useEffect(() => {
+        setSudokuBoard(new Array(boardSize).fill(''))
+    },[boardSize])
+
+    const convertToInt = value => {
+        if (/\d/g.test(value)) {
+            return parseInt(value)
+        }
+        if (value === "") {
+            return 0
+        }
+        return value.charCodeAt(0) - "A".charCodeAt(0) + 10
+    }
+
+    const convertToChar = value => {
+        if (value == 0) {
+            return ""
+        }
+        if (value < 10) {
+            return value
+        }
+        return String.fromCharCode(value - 10 + "A".charCodeAt(0))
+    }
 
     const solvePuzzle = () => {
-        const originalPuzzle = sudokuBoard.map(value => value === "" ? "0" : value)
+        const originalPuzzle = sudokuBoard.map(value => convertToInt(value))
+        console.log(originalPuzzle[0])
         const requestBody = {
             original: originalPuzzle
         }
 
         axios
-            .post(`https://mighty-hamlet-94209.herokuapp.com/sudoku/solve`, requestBody)
+            .post('https://mighty-hamlet-94209.herokuapp.com/sudoku/solve', requestBody)
             .then(response => {
-                setSudokuBoard(response.data.solution.map(value => value === "0" ? "" : value))
+                setSudokuBoard(response.data.solution.map(value => convertToChar(value)))
+                if (response.data.solved) {
+                    setSolutionFound("Puzzle solved!")
+                } else {
+                    setSolutionFound("No solution found. Check input puzzle and try again.")
+                }
             })
     }
 
     const resetPuzzle = () => {
-        setSudokuBoard(initialize);
+        setSudokuBoard(new Array(boardSize).fill(''))
+        setSolutionFound("")
     }
 
     const resetPuzzleSize = (event) => {
-        const value = event.target.value
-        const newSquares = value * value
-        console.log(event.target.value)
-        const newBoard = new Array(newSquares).fill('')
-        console.log(sudokuBoard)
+        setBoardLength(event.target.value)
     }
-
-    // const resetPuzzleSize = (eventKey) => {
-    //     console.log(eventKey*eventKey)
-        
-    // }
 
     const handleSudokuInput = (event) => {
         const newValues = [...sudokuBoard]
@@ -52,17 +80,21 @@ const BoardArea = () => {
     const style = {
         position: "static",
         height: "auto",
-        width: "360px",
+        width: `${boardLength*40+100}px`,
         margin: "10px auto",
+        textAlign: "center"
     }
 
     return (
         <div style={style}>
             
-            {/* <MyDropdown handleClick={resetPuzzleSize} /> */}
-            <SudokuBoard sudokuValue={sudokuBoard} handleSudokuField={handleSudokuInput} />
+            <MyDropdown handleClick={resetPuzzleSize} />
+            <SudokuBoard sudokuValue={sudokuBoard} boardLength={boardLength} handleSudokuField={handleSudokuInput} />
+            <div>
             <MyButton id="solve-button" text="Solve!" handleClick={solvePuzzle} type="primary" /> {' '}
             <MyButton id="reset-button" text="Reset Puzzle" handleClick={resetPuzzle} type="secondary" />
+            </div>
+            <Solution solutionFound={solutionFound} />
             <Directions />
         </div>
     )
