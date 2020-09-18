@@ -8,7 +8,8 @@ const style = {
 }
 
 const buttonStyle = {
-    margin: "5px 5px 10px"   
+    margin: "5px 5px 10px",
+    width: "150px"  
 }
 
 const Footer = () => {

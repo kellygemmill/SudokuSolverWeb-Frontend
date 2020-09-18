@@ -1,8 +1,13 @@
 import React from 'react'
 
 const Directions = () => {
+
+    const style = {
+        marginTop: "15px"
+    }
+
     return (
-        <div>
+        <div style={style}>
             <h3>To solve your puzzle:</h3>
             <ol style={{textAlign: "left"}}>
                 <li>Enter known values in the boxes above. Leave all unknown boxes blank.</li>
