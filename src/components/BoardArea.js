@@ -79,26 +79,37 @@ const BoardArea = () => {
         setSudokuBoard(newValues)
     }
 
-    const style = {
-        position: "static",
+    const topStyle = {
         height: "auto",
-        width: `${boardLength*40+100}px`,
+        width: `${350}px`, // approximately the size of a 9x9
+        margin: "10px auto",
+        textAlign: "center"
+    }
+
+    const bottomStyle = {
+        height: "auto",
+        width: `${350}px`, // approximately the size of a 9x9
         margin: "10px auto",
         textAlign: "center"
     }
 
     return (
-        <div style={style}>
-            
-            <MyDropdown handleClick={resetPuzzleSize} />
-            <LargeBoardDirections boardLength={boardLength} />
-            <SudokuBoard sudokuValue={sudokuBoard} boardLength={boardLength} handleSudokuField={handleSudokuInput} />
-            <div>
-            <MyButton id="solve-button" text="Solve!" handleClick={solvePuzzle} type="primary" /> {' '}
-            <MyButton id="reset-button" text="Reset Puzzle" handleClick={resetPuzzle} type="secondary" />
+        <div>
+            <div style={topStyle}>
+                <MyDropdown handleClick={resetPuzzleSize} />
+                <LargeBoardDirections boardLength={boardLength} />
             </div>
-            <Solution solutionFound={solutionFound} />
-            <Directions />
+            <div>
+                <SudokuBoard sudokuValue={sudokuBoard} boardLength={boardLength} handleSudokuField={handleSudokuInput} />
+            </div>
+            <div style={bottomStyle}>
+                <div>
+                    <MyButton id="solve-button" text="Solve!" handleClick={solvePuzzle} type="primary" /> {' '}
+                    <MyButton id="reset-button" text="Reset Puzzle" handleClick={resetPuzzle} type="secondary" />
+                </div>
+                <Solution solutionFound={solutionFound} />
+                <Directions />
+            </div>
         </div>
     )
 }
