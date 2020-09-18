@@ -73,7 +73,7 @@ const BoardArea = () => {
     const handleSudokuInput = (event) => {
         const newValues = [...sudokuBoard]
         const id = event.target.id
-        const value = event.target.value.charAt(0)
+        const value = event.target.value.charAt(0).toUpperCase()
         newValues[id] = value
         setSudokuBoard(newValues)
     }

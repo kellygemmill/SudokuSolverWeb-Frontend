@@ -21,6 +21,7 @@ const MyDropdown = ({ handleClick }) => {
                 <Button style={buttonStyle} variant="outline-dark" value="4" onClick={handleClick}>4 x 4</Button>
                 <Button style={buttonStyle} variant="outline-dark" value="9" onClick={handleClick}>9 x 9</Button>
                 <Button style={buttonStyle} variant="outline-dark" value="16" onClick={handleClick}>16 x 16</Button>
+                <Button style={buttonStyle} variant="outline-dark" value="25" onClick={handleClick}>25 x 25</Button>
             </ButtonGroup>
         </div>
 

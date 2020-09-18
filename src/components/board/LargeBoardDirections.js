@@ -6,7 +6,7 @@ const LargeBoardDirections = ({ boardLength }) => {
     }
     return (
         <div style={{ fontWeight: "bold", margin: "5px", fontSize: "15px" }}>
-            Input numbers greater than 9 as capital letters.<br></br>(A = 10, B = 11, etc.)
+            Input numbers greater than 9 as letters.<br></br>(A = 10, B = 11, etc.)
         </div>
     )
 }
