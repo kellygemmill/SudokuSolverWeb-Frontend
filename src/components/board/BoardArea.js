@@ -9,18 +9,18 @@ import LargeBoardDirections from './LargeBoardDirections'
 
 const BoardArea = () => {
 
-    const [boardLength,setBoardLength] = useState(9)
-    const [boardSize,setBoardSize] = useState(boardLength*boardLength)
+    const [boardLength, setBoardLength] = useState(9)
+    const [boardSize, setBoardSize] = useState(boardLength * boardLength)
     const [sudokuBoard, setSudokuBoard] = useState(new Array(boardSize).fill(''))
-    const [solutionFound,setSolutionFound] = useState("")
+    const [solutionFound, setSolutionFound] = useState("")
 
     useEffect(() => {
-        setBoardSize(boardLength*boardLength)
-    },[boardLength])
+        setBoardSize(boardLength * boardLength)
+    }, [boardLength])
 
     useEffect(() => {
         setSudokuBoard(new Array(boardSize).fill(''))
-    },[boardSize])
+    }, [boardSize])
 
     const convertToInt = value => {
         if (/\d/g.test(value)) {
@@ -44,7 +44,6 @@ const BoardArea = () => {
 
     const solvePuzzle = () => {
         const originalPuzzle = sudokuBoard.map(value => convertToInt(value))
-        console.log(originalPuzzle[0])
         const requestBody = {
             original: originalPuzzle
         }

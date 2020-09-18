@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
 import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 
-const MyDropdown = ({handleClick}) => {
+const MyDropdown = ({ handleClick }) => {
 
     const style = {
         marginBottom: "15px",
@@ -18,7 +16,7 @@ const MyDropdown = ({handleClick}) => {
 
     return (
         <div>
-            <p style={{fontWeight: "bold", marginBottom: "5px"}}>Change puzzle size:</p>
+            <p style={{ fontWeight: "bold", marginBottom: "5px" }}>Change puzzle size:</p>
             <ButtonGroup aria-label="Board size" style={style}>
                 <Button style={buttonStyle} variant="outline-dark" value="4" onClick={handleClick}>4 x 4</Button>
                 <Button style={buttonStyle} variant="outline-dark" value="9" onClick={handleClick}>9 x 9</Button>

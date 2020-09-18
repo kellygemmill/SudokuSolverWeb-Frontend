@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
-import axios from 'axios'
-import SudokuBoard from './SudokuBoard'
-import MyButton from './MyButton'
-import BoardArea from './BoardArea'
+import React from 'react';
+import BoardArea from './board/BoardArea'
 import Footer from './Footer'
 
 const App = () => {
   return (
-  <div>
-    <h1>Sudoku Solver</h1>
-    <BoardArea />
-    <Footer />
-  </div>
+    <div>
+      <h1>Sudoku Solver</h1>
+      <BoardArea />
+      <Footer />
+    </div>
   )
 }
 

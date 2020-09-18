@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 
-const MyButton = ({id, text, handleClick, type}) => {
+const MyButton = ({ id, text, handleClick, type }) => {
 
     const style = {
         margin: "15px 5px 10px",
