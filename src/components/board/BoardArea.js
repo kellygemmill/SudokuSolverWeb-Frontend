@@ -49,7 +49,7 @@ const BoardArea = () => {
         }
 
         axios
-            .post('https://mighty-hamlet-94209.herokuapp.com/sudoku/solve', requestBody)
+            .post('https://sudoku-api-kg.herokuapp.com/sudoku/solve', requestBody)
             .then(response => {
                 setSudokuBoard(response.data.solution.map(value => convertToChar(value)))
                 if (response.data.solved) {
