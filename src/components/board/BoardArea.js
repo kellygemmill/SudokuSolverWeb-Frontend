@@ -33,7 +33,7 @@ const BoardArea = () => {
     }
 
     const convertToChar = value => {
-        if (value == 0) {
+        if (value === 0) {
             return ""
         }
         if (value < 10) {
