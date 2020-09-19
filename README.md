@@ -34,30 +34,30 @@ Below the board are two buttons: one to solve the puzzle and one to reset the bo
 #### Solution: 
 Below the buttons a message is printed stating whether the puzzle was solved or not. Before the "Solve" button is clicked, no message is displayed.
 
-#### Directions
+#### Directions:
 This section gives directions to the user.
 
-### Footer
+### Footer:
 The footer contains links to the Github repositories for both the backend and frontend, as well as a copyright statement with a link to Kelly Gemmill's LinkedIn profile.
 
 ## State Variables and Callbacks:
 All state variables and callback functions are defined in the BoardArea component. 
 
-### State Variables
+### State Variables:
 The state variables include the board length, board size, sudoku board (defined as a 1-d character array of the same size as the board) and the message to display below the board (either "Puzzle solved" or "No solution found").
 
-### Callbacks and Auxiliary Functions
+### Callbacks and Auxiliary Functions:
 
-#### solvePuzzle() 
+#### solvePuzzle(): 
 This is the callback function for the "Solve!" button. The values in the puzzle are converted to integers and then sent to the solver API. Upon response, the sudokuBoard and solutionFound state variables are updated in accordance with the response from the API.
 
-#### convertToInt(value)
+#### convertToInt(value):
 This function converts a character from the sudoku board to an integer in order to send to the API, as the API requires an integer array. This also requires converting alphabetical characters to the required equivalent integer (A -> 10, B -> 11, etc.) and converting empty spaces to 0, as required by the API.
 
-#### convertToChar(value)
+#### convertToChar(value):
 This function converts the integers sent from the API back to a characters, including converting 0 to an empty space (if the board was not solved) and converting numbers greater than 9 to letters.
 
-#### handleSudokuInput(event)
+#### handleSudokuInput(event):
 This function updates the sudoku board state variable to what is input by the user. The function ensures that each box only contains one value, which is bounde by the size of the board (e.g. if the user tries to input a 5 in a 4x4 board, nothing is displayed). Additionally, for large boards, lowercase character entries are converted to uppercase.
 
 
