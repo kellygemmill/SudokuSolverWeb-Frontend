@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 
 
-const MyDropdown = ({ handleClick }) => {
+const BoardSizeSelector = ({ handleClick }) => {
 
     const style = {
         marginBottom: "15px",
@@ -27,4 +27,4 @@ const MyDropdown = ({ handleClick }) => {
     )
 }
 
-export default MyDropdown
+export default BoardSizeSelector

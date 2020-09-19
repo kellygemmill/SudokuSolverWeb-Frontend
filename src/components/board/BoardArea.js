@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import SudokuBoard from './SudokuBoard'
-import MyButton from './MyButton'
-import MyDropdown from './MyDropdown'
+import BoardSizeSelector from './BoardSizeSelector'
 import Directions from './Directions'
 import Solution from './Solution'
 import LargeBoardDirections from './LargeBoardDirections'
+import BottomButtons from './BottomButtons'
 
 const BoardArea = () => {
 
@@ -98,17 +98,14 @@ const BoardArea = () => {
     return (
         <div>
             <div style={topStyle}>
-                <MyDropdown handleClick={resetPuzzleSize} />
+                <BoardSizeSelector handleClick={resetPuzzleSize} />
                 <LargeBoardDirections boardLength={boardLength} />
             </div>
             <div>
                 <SudokuBoard sudokuValue={sudokuBoard} boardLength={boardLength} handleSudokuField={handleSudokuInput} />
             </div>
             <div style={bottomStyle}>
-                <div>
-                    <MyButton id="solve-button" text="Solve!" handleClick={solvePuzzle} type="primary" /> {' '}
-                    <MyButton id="reset-button" text="Reset Puzzle" handleClick={resetPuzzle} type="secondary" />
-                </div>
+                <BottomButtons solvePuzzle={solvePuzzle} resetPuzzle={resetPuzzle} />
                 <Solution solutionFound={solutionFound} />
                 <Directions />
             </div>
