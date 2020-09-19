@@ -31,7 +31,7 @@ const Square = ({ value, handleSquareValue, id, boardLength, subBoxLength, squar
 
     return (
         <div>
-            <input style={style} onChange={handleSquareValue} value={value} id={id} />
+            <input style={style} onChange={handleSquareValue} value={value} id={id} autoComplete="off" />
         </div>
     )
 }
