@@ -1,7 +1,7 @@
 # SudokuSolverWeb-Frontend
-This is the front end of a sudoku solver web app written in Javascript using React. The page was styled using React Boostrap. This web app is available online at [sudoku-kg.herokuapp.com](http://sudoku-kg.herokuapp.com). 
+This is the front end of a sudoku solver web app written in Javascript using React. The page was styled using React Boostrap. This web app is available online at [http://sudoku-kg.herokuapp.com](http://sudoku-kg.herokuapp.com). 
 
-Additionally, the API can be queried directly by sending a post request to [http://sudoku-api-kg.herokuapp.com](sudoku-api-kg.herokuapp.com). See the repository for [SudokuSolverWeb-Backend](https://github.com/kellygemmill/SudokuSolverWeb-Backend) for details on the API and backend Java code. 
+Additionally, the API can be queried directly by sending a post request to [http://sudoku-api-kg.herokuapp.com](http://sudoku-api-kg.herokuapp.com). See the repository for [SudokuSolverWeb-Backend](https://github.com/kellygemmill/SudokuSolverWeb-Backend) for details on the API and backend Java code. 
 
 ## Sample Screenshots: 
 
