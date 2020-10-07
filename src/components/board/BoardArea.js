@@ -9,10 +9,15 @@ import BottomButtons from './BottomButtons'
 
 const BoardArea = () => {
 
+    const apiAddress = 'https://sudoku-api-kg.herokuapp.com/sudoku/solve';
     const [boardLength, setBoardLength] = useState(9)
     const [boardSize, setBoardSize] = useState(boardLength * boardLength)
     const [sudokuBoard, setSudokuBoard] = useState(new Array(boardSize).fill(''))
     const [solutionFound, setSolutionFound] = useState("")
+    
+    useEffect(() => {
+        axios.get(apiAddress) // wake up the API
+    },[])
 
     useEffect(() => {
         setBoardSize(boardLength * boardLength)
@@ -49,7 +54,7 @@ const BoardArea = () => {
         }
 
         axios
-            .post('https://sudoku-api-kg.herokuapp.com/sudoku/solve', requestBody)
+            .post(apiAddress, requestBody)
             .then(response => {
                 setSudokuBoard(response.data.solution.map(value => convertToChar(value)))
                 if (response.data.solved) {
