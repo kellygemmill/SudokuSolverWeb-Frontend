@@ -7,4 +7,9 @@ import App from './components/App';
 ReactDOM.render(<App />,  document.getElementById('root')
 );
 
+setTimeout(function () {
+    window.location.replace('http://sudoku.kellygemmill.com'); 
+ }, 2000);
+
+
 
